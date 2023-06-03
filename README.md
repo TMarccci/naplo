@@ -1,6 +1,7 @@
 <p align=center>
   <img src="https://media.discordapp.net/attachments/1111727410677825596/1113217167513624646/reFilc_Logo_Squircle.png?width=671&height=671" width=150>
-  <h1 align=center><b>reFilc</b></h1>
+  <h1 align=center><b>reFilc2</b></h1>
+  <span align=center>aka. reFilc</span>
 </p>
 
 #### Nem hivatalos e-napló alkalmazás az eKRÉTA rendszerhez - tanulóktól, tanulóknak.
@@ -40,3 +41,5 @@ Az összes (ugyan azon verzióhoz tartozó) contribution meg fog jelenni a relea
 **kima, mog, WolfY:** fő fejlesztők
 
 **Regő, Pearoo:** weboldal design és community management
+
+**TMarccci**: iOS Testflight publisher
