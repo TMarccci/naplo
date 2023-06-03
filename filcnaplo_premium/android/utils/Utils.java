@@ -1,4 +1,4 @@
-package hu.refilc.naplo.utils;
+package hu.refilc2.naplo.utils;
 
 import android.content.Context;
 import android.net.ConnectivityManager;

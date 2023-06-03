@@ -1,4 +1,4 @@
-package hu.refilc.naplo.utils;
+package hu.refilc2.naplo.utils;
 
 import java.time.DayOfWeek;
 import java.time.Duration;

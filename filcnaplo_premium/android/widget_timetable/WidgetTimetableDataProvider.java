@@ -1,4 +1,4 @@
-package hu.refilc.naplo.widget_timetable;
+package hu.refilc2.naplo.widget_timetable;
 
 import android.appwidget.AppWidgetManager;
 import android.content.Context;
@@ -20,8 +20,8 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
-import hu.refilc.naplo.database.DBManager;
-import hu.refilc.naplo.R;
+import hu.refilc2.naplo.database.DBManager;
+import hu.refilc2.naplo.R;
 
 public class WidgetTimetableDataProvider implements RemoteViewsService.RemoteViewsFactory {
 

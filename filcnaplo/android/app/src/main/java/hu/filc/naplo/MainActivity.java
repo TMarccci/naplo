@@ -1,4 +1,4 @@
-package hu.refilc.naplo;
+package hu.refilc2.naplo;
 
 import android.os.Bundle;
 
