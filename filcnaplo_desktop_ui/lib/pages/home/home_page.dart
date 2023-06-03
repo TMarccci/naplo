@@ -97,10 +97,10 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
                   padding: const EdgeInsets.only(bottom: 12.0),
                   child: FilterBar(
                     items: [
-                      Tab(text: "All".i18n),
-                      Tab(text: "Grades".i18n),
-                      Tab(text: "Messages".i18n),
-                      Tab(text: "Absences".i18n),
+                      Tab(text: "  " + "All".i18n + "  "),
+                      Tab(text: "  " + "Grades".i18n + "  "),
+                      Tab(text: "  " + "Messages".i18n + "  "),
+                      Tab(text: "  " + "Absences".i18n + "  "),
                     ],
                     controller: _tabController,
                     onTap: (i) async {

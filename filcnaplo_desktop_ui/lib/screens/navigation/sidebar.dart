@@ -8,6 +8,7 @@ import 'package:filcnaplo_desktop_ui/common/panel_button.dart';
 import 'package:filcnaplo_desktop_ui/common/profile_image.dart';
 import 'package:filcnaplo_desktop_ui/screens/navigation/sidebar_action.dart';
 import 'package:filcnaplo_desktop_ui/screens/settings/settings_screen.dart';
+import 'package:filcnaplo_desktop_ui/screens/settings/settings_screen.i18n.dart';
 import 'package:filcnaplo_mobile_ui/screens/settings/accounts/account_tile.dart';
 import 'package:filcnaplo_kreta_api/client/client.dart';
 import 'package:filcnaplo_kreta_api/providers/absence_provider.dart';
@@ -25,7 +26,12 @@ import 'package:provider/provider.dart';
 import 'package:filcnaplo/theme/colors/colors.dart';
 
 class Sidebar extends StatefulWidget {
-  const Sidebar({Key? key, required this.navigator, required this.onRouteChange, this.selected = "home"}) : super(key: key);
+  const Sidebar(
+      {Key? key,
+      required this.navigator,
+      required this.onRouteChange,
+      this.selected = "home"})
+      : super(key: key);
 
   final NavigatorState navigator;
   final String selected;
@@ -76,7 +82,7 @@ class _SidebarState extends State<Sidebar> {
 
     List<Widget> pageWidgets = [
       SidebarAction(
-        title: const Text("Home"),
+        title: Text("home".i18n),
         icon: const Icon(FilcIcons.home),
         selected: widget.selected == "home",
         onTap: () {
@@ -87,7 +93,7 @@ class _SidebarState extends State<Sidebar> {
         },
       ),
       SidebarAction(
-        title: const Text("Grades"),
+        title: Text("grades".i18n),
         icon: const Icon(FeatherIcons.bookmark),
         selected: widget.selected == "grades",
         onTap: () {
@@ -98,7 +104,7 @@ class _SidebarState extends State<Sidebar> {
         },
       ),
       SidebarAction(
-        title: const Text("Timetable"),
+        title: Text("timetable".i18n),
         icon: const Icon(FeatherIcons.calendar),
         selected: widget.selected == "timetable",
         onTap: () {
@@ -109,7 +115,7 @@ class _SidebarState extends State<Sidebar> {
         },
       ),
       SidebarAction(
-        title: const Text("Messages"),
+        title: Text("messages".i18n),
         icon: const Icon(FeatherIcons.messageSquare),
         selected: widget.selected == "messages",
         onTap: () {
@@ -120,7 +126,7 @@ class _SidebarState extends State<Sidebar> {
         },
       ),
       SidebarAction(
-        title: const Text("Absences"),
+        title: Text("absences".i18n),
         icon: const Icon(FeatherIcons.clock),
         selected: widget.selected == "absences",
         onTap: () {
@@ -134,12 +140,15 @@ class _SidebarState extends State<Sidebar> {
 
     List<Widget> bottomActions = [
       SidebarAction(
-        title: const Text("Settings"),
+        title: Text("settings".i18n),
         selected: true,
         icon: const Icon(FeatherIcons.settings),
         onTap: () {
           if (topNav != "settings") {
-            widget.navigator.push(CupertinoPageRoute(builder: (context) => const SettingsScreen())).then((value) => topNav = "");
+            widget.navigator
+                .push(CupertinoPageRoute(
+                    builder: (context) => const SettingsScreen()))
+                .then((value) => topNav = "");
             topNav = "settings";
           }
         },
@@ -159,7 +168,7 @@ class _SidebarState extends State<Sidebar> {
         onPressed: () {
           Navigator.of(context).pushNamed("login_back");
         },
-        title: const Text("Add User"),
+        title: Text("add_user".i18n),
         leading: const Icon(FeatherIcons.userPlus),
       ),
       PanelButton(
@@ -169,17 +178,20 @@ class _SidebarState extends State<Sidebar> {
 
           // Delete User
           user.removeUser(userId);
-          await Provider.of<DatabaseProvider>(context, listen: false).store.removeUser(userId);
+          await Provider.of<DatabaseProvider>(context, listen: false)
+              .store
+              .removeUser(userId);
 
           // If no other Users left, go back to LoginScreen
           if (user.getUsers().isNotEmpty) {
             user.setUser(user.getUsers().first.id);
             restore().then((_) => user.setUser(user.getUsers().first.id));
           } else {
-            Navigator.of(context).pushNamedAndRemoveUntil("login", (_) => false);
+            Navigator.of(context)
+                .pushNamedAndRemoveUntil("login", (_) => false);
           }
         },
-        title: const Text("Log Out"),
+        title: Text("log_out".i18n),
         leading: Icon(FeatherIcons.logOut, color: AppColors.of(context).red),
       ),
     ];
@@ -190,7 +202,8 @@ class _SidebarState extends State<Sidebar> {
       child: Column(
         children: [
           Padding(
-            padding: const EdgeInsets.only(left: 18.0, top: 18.0, bottom: 24.0, right: 8.0),
+            padding: const EdgeInsets.only(
+                left: 18.0, top: 18.0, bottom: 24.0, right: 8.0),
             child: Row(
               children: [
                 Padding(
@@ -198,8 +211,9 @@ class _SidebarState extends State<Sidebar> {
                   child: ProfileImage(
                     name: firstName,
                     radius: 18.0,
-                    backgroundColor:
-                        !settings.presentationMode ? ColorUtils.stringToColor(user.name ?? "?") : Theme.of(context).colorScheme.secondary,
+                    backgroundColor: !settings.presentationMode
+                        ? ColorUtils.stringToColor(user.name ?? "?")
+                        : Theme.of(context).colorScheme.secondary,
                   ),
                 ),
                 Expanded(
@@ -212,7 +226,8 @@ class _SidebarState extends State<Sidebar> {
                   ),
                 ),
                 PageTransitionSwitcher(
-                  transitionBuilder: (child, primaryAnimation, secondaryAnimation) {
+                  transitionBuilder:
+                      (child, primaryAnimation, secondaryAnimation) {
                     return FadeThroughTransition(
                       fillColor: Colors.transparent,
                       animation: primaryAnimation,
@@ -222,7 +237,9 @@ class _SidebarState extends State<Sidebar> {
                   },
                   child: IconButton(
                     key: Key(expandAccount ? "accounts" : "pages"),
-                    icon: Icon(expandAccount ? FeatherIcons.chevronDown : FeatherIcons.chevronRight),
+                    icon: Icon(expandAccount
+                        ? FeatherIcons.chevronDown
+                        : FeatherIcons.chevronRight),
                     padding: EdgeInsets.zero,
                     splashRadius: 20.0,
                     onPressed: () {
@@ -286,11 +303,15 @@ class _SidebarState extends State<Sidebar> {
       }
 
       accountTiles.add(AccountTile(
-        name: Text(!settings.presentationMode ? account.name : "Béla", style: const TextStyle(fontWeight: FontWeight.w500)),
-        username: Text(!settings.presentationMode ? account.username : "72469696969"),
+        name: Text(!settings.presentationMode ? account.name : "Béla",
+            style: const TextStyle(fontWeight: FontWeight.w500)),
+        username:
+            Text(!settings.presentationMode ? account.username : "72469696969"),
         profileImage: ProfileImage(
           name: _firstName,
-          backgroundColor: !settings.presentationMode ? ColorUtils.stringToColor(account.name) : Theme.of(context).colorScheme.secondary,
+          backgroundColor: !settings.presentationMode
+              ? ColorUtils.stringToColor(account.name)
+              : Theme.of(context).colorScheme.secondary,
           role: account.role,
         ),
         onTap: () {

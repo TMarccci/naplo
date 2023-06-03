@@ -54,7 +54,7 @@ class FilcAPI {
   }
 
   static Future<Config?> getConfig(SettingsProvider settings) async {
-    final userAgent = SettingsProvider.defaultSettings().config.userAgent;
+    /*final userAgent = SettingsProvider.defaultSettings().config.userAgent;
 
     Map<String, String> headers = {
       "x-filc-id": settings.xFilcId,
@@ -77,7 +77,7 @@ class FilcAPI {
       throw "HTTP ${res.statusCode}: ${res.body}";
     } on Exception catch (error, stacktrace) {
       log("ERROR: FilcAPI.getConfig: $error $stacktrace");
-    }
+    }*/
     return null;
   }
 

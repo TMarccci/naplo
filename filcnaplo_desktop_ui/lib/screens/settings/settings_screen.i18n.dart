@@ -61,6 +61,12 @@ extension SettingsLocalization on String {
           "Background Color": "Background Color",
           "Highlight Color": "Highlight Color",
           "Adaptive Theme": "Adaptive Theme",
+          "home": "Home",
+          "grades": "Grades",
+          "timetable": "Timetable",
+          "messages": "Messages",
+          "absences": "Absences",
+          "settings": "Settings"
         },
         "hu_hu": {
           "personal_details": "Személyes információk",
@@ -120,6 +126,12 @@ extension SettingsLocalization on String {
           "Background Color": "Háttér színe",
           "Highlight Color": "Panelek színe",
           "Adaptive Theme": "Adaptív téma",
+          "home": "Kezdőlap",
+          "grades": "Jegyek",
+          "timetable": "Órarend",
+          "messages": "Üzenetek",
+          "absences": "Hiányok",
+          "settings": "Beállíátsok"
         },
         "de_de": {
           "personal_details": "Persönliche Angaben",
@@ -178,6 +190,12 @@ extension SettingsLocalization on String {
           "Background Color": "Background Color",
           "Highlight Color": "Highlight Color",
           "Adaptive Theme": "Adaptive Theme",
+          "home": "Zuhause",
+          "grades": "Noten",
+          "timetable": "Zeitplan",
+          "messages": "Mitteilungen",
+          "absences": "Fehlen",
+          "settings": "Einstellungen"
         },
       };
 
