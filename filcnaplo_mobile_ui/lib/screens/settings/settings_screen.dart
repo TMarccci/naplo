@@ -153,7 +153,6 @@ class _SettingsScreenState extends State<SettingsScreen>
   @override
   void initState() {
     super.initState();
-    futureRelease = Provider.of<UpdateProvider>(context).installedVersion();
     _hideContainersController = AnimationController(
         vsync: this, duration: const Duration(milliseconds: 200));
   }
